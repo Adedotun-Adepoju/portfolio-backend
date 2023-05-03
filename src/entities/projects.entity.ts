@@ -1,32 +1,35 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
-@Entity({ name: 'experiences' })
+@Entity({ name: 'projects' })
 export class Experience {
 	@PrimaryGeneratedColumn()
 	public id: number;
 
 	@Column()
-	public company: string;
+	public name: string;
 
 	@Column()
-	public job_title: string;
-
-	@Column({ type: 'date'})
-	public start_date: Date;
-
-	@Column({ type: 'date'})
-	public end_date: Date;    
+	public description: string;
 
 	@Column()
-	public link: string;
+	public image_link: string;
+
+	@Column()
+	public year: Number;    
 
 	@Column('varchar', { array: true,})
-	public roles: string[];
+	public skills: string[];
+
+    @Column()
+	public github_link: string;
+
+    @Column()
+	public demo_link: string;
 
 	@CreateDateColumn({
-		type: 'timestamp',
-		name: 'created_at',
-		default: () => 'CURRENT_TIMESTAMP',
+    type: 'timestamp',
+    name: 'created_at',
+    default: () => 'CURRENT_TIMESTAMP',
 	})
 	public created_at: Date;
 
