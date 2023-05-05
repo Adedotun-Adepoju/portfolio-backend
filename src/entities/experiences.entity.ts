@@ -14,7 +14,7 @@ export class Experience {
 	@Column({ type: 'date'})
 	public start_date: Date;
 
-	@Column({ type: 'date'})
+	@Column({ type: 'date', nullable: true})
 	public end_date: Date;    
 
 	@Column()

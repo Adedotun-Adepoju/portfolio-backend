@@ -1,7 +1,7 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity({ name: 'projects' })
-export class Experience {
+export class Project {
 	@PrimaryGeneratedColumn()
 	public id: number;
 

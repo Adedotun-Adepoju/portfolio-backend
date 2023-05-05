@@ -1,10 +1,17 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
+import { CreateExperienceDto } from './dto/create-experience.dto';
+import { CreateProjectDto } from './dto/create-project.dto';
+import { PortfolioService } from './portfolio.service';
 
 @Controller('portfolio')
 export class PortfolioController {
+	constructor(
+		private readonly portfolioService: PortfolioService
+	){}
+
 	@Post('/experiences')
-	createJobExperience(): string {
-		return 'Experience'
+	createJobExperience(@Body() createExperienceDto: CreateExperienceDto) {
+		return this.portfolioService.createJobExperience(createExperienceDto)
 	}
 
 	@Get('/experiences')
