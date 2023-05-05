@@ -3,23 +3,28 @@ import { IsNotEmpty, IsString, IsOptional, IsArray } from "class-validator";
 export class CreateProjectDto {
 	@IsString()
 	@IsNotEmpty()
-	company: string;
+	name: string;
 
 	@IsString()
 	@IsNotEmpty()
-	job_title: string
-
-	@IsNotEmpty()
-	start_date: Date 
-
-	@IsOptional()
-	end_date: Date 
+	description: string
 
 	@IsString()
 	@IsNotEmpty()
-	link: string 
+	image_link: string 
+
+	@IsString()
+	@IsNotEmpty()
+	year: string 
+
+	@IsString()
+	@IsNotEmpty()
+	github_link: string 
 
 	@IsArray()
 	@IsNotEmpty()
-	roles: string[]
+	skills: string[]
+
+	@IsOptional()
+	demo_link: string
 }

@@ -4,6 +4,7 @@ import { Experience } from 'src/entities/experiences.entity';
 import { Project } from 'src/entities/projects.entity';
 import { Repository } from 'typeorm';
 import { CreateExperienceDto } from './dto/create-experience.dto';
+import { CreateProjectDto } from './dto/create-project.dto';
 
 @Injectable()
 export class PortfolioService {
@@ -19,5 +20,19 @@ export class PortfolioService {
 		const newExperience = this.experienceRepo.create(payload)
 
 		return await this.experienceRepo.save(newExperience)
+	}
+
+	async fetchJobExperiences(){
+		return await this.experienceRepo.find()
+	}
+
+	async createProject(payload: CreateProjectDto){
+		const newProject = this.projectRepo.create(payload)
+
+		return await this.projectRepo.save(newProject)
+	}
+
+	async fetchProjects(){
+		return await this.projectRepo.find()
 	}
 }

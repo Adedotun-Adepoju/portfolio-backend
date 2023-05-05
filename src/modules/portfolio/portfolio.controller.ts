@@ -15,27 +15,17 @@ export class PortfolioController {
 	}
 
 	@Get('/experiences')
-	fetchJobExperiences(): string {
-		return 'Experiences'
-	}
-
-	@Post('/skills')
-	createSkill(): string {
-		return 'Skill'
-	}
-
-	@Get('/skills')
-	fetchSkills(): string {
-		return 'skills'
+	fetchJobExperiences() {
+		return this.portfolioService.fetchJobExperiences()
 	}
 
 	@Post('/projects')
-	createProject(): string {
-		return 'Project'
+	createProject(@Body() createProjectDto: CreateProjectDto) {
+		return this.portfolioService.createProject(createProjectDto)
 	}
 
 	@Get('/projects')
-	fetchProjects(): string {
-		return 'Projects'
+	fetchProjects() {
+		return this.portfolioService.fetchProjects()
 	}
 }
