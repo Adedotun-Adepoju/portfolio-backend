@@ -16,7 +16,7 @@ const typeOrmConfig = new DataSource({
   migrationsTableName: 'typeorm_migrations',
   logger: 'file',
   synchronize: false,
-  ssl: true
+  // ssl: true
 });
 
 typeOrmConfig
